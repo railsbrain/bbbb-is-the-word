@@ -15,7 +15,7 @@ def home():
     cnxn = pyodbc.connect('DRIVER={SQL Server};SERVER=%s;PORT=1433;DATABASE=%s;UID=%s;PWD=%s' % (os.getenv('SQL_ADR'), os.getenv('SQL_DTB'), os.getenv('SQL_USR'), os.getenv('SQL_PWD')))
     cursor = cnxn.cursor()
     cursor.execute("select * from wp_terms")
-    row = cursor.fetchone()
+    row = cursor.fetchall()
 
     """Renders the home page."""
     return render_template(
