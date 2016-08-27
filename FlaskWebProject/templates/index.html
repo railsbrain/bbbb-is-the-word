@@ -13,6 +13,8 @@
 </body>
 
 {% if data %}
-<div>Hello, {{ data }}</div>
+{% for item in data %}
+        <li>{{ item }}</a></li>
+{% endfor %}
 {% endif %}
 
