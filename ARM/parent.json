@@ -12,7 +12,7 @@
       "properties": {
         "mode": "incremental",
         "templateLink": {
-          "uri": "'https://storagecontosotemplates.blob.core.windows.net/templates/helloworld.json",
+          "uri": "https://raw.githubusercontent.com/4c74356b41/bbbb-is-the-word/master/ARM/helloworld.json",
           "contentVersion": "1.0.0.0"
         }
       }
@@ -24,7 +24,7 @@
       "properties": {
         "mode": "incremental",
         "templateLink": {
-          "uri": "'https://storagecontosotemplates.blob.core.windows.net/templates/helloworld.json",
+          "uri": "https://raw.githubusercontent.com/4c74356b41/bbbb-is-the-word/master/ARM/helloworld.json",
           "contentVersion": "1.0.0.0"
         }
       }
@@ -36,7 +36,7 @@
       "properties": {
         "mode": "incremental",
         "templateLink": {
-          "uri": "'https://storagecontosotemplates.blob.core.windows.net/templates/helloworld.json",
+          "uri": "https://raw.githubusercontent.com/4c74356b41/bbbb-is-the-word/master/ARM/helloworld.json",
           "contentVersion": "1.0.0.0"
         }
       }
