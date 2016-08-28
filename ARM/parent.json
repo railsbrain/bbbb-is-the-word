@@ -12,7 +12,7 @@
       "properties": {
         "mode": "incremental",
         "templateLink": {
-          "uri": "[concat(uri(deployment().properties.templateLink.uri, 'helloworld.json'), parameters('containerSasToken'))]",
+          "uri": "'https://storagecontosotemplates.blob.core.windows.net/templates/helloworld.json",
           "contentVersion": "1.0.0.0"
         }
       }
@@ -24,7 +24,7 @@
       "properties": {
         "mode": "incremental",
         "templateLink": {
-          "uri": "[concat(uri(deployment().properties.templateLink.uri, 'helloworld.json'), parameters('containerSasToken'))]",
+          "uri": "'https://storagecontosotemplates.blob.core.windows.net/templates/helloworld.json",
           "contentVersion": "1.0.0.0"
         }
       }
@@ -36,7 +36,7 @@
       "properties": {
         "mode": "incremental",
         "templateLink": {
-          "uri": "[concat(uri(deployment().properties.templateLink.uri, 'helloworld.json'), parameters('containerSasToken'))]",
+          "uri": "'https://storagecontosotemplates.blob.core.windows.net/templates/helloworld.json",
           "contentVersion": "1.0.0.0"
         }
       }
