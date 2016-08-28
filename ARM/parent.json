@@ -7,7 +7,31 @@
   "resources": [
     {
       "apiVersion": "2015-01-01",
-      "name": "webAppTemplate",
+      "name": "webAppPrimary",
+      "type": "Microsoft.Resources/deployments",
+      "properties": {
+        "mode": "incremental",
+        "templateLink": {
+          "uri": "[concat(uri(deployment().properties.templateLink.uri, 'helloworld.json'), parameters('containerSasToken'))]",
+          "contentVersion": "1.0.0.0"
+        }
+      }
+    },
+        {
+      "apiVersion": "2015-01-01",
+      "name": "webAppSecondary",
+      "type": "Microsoft.Resources/deployments",
+      "properties": {
+        "mode": "incremental",
+        "templateLink": {
+          "uri": "[concat(uri(deployment().properties.templateLink.uri, 'helloworld.json'), parameters('containerSasToken'))]",
+          "contentVersion": "1.0.0.0"
+        }
+      }
+    },
+        {
+      "apiVersion": "2015-01-01",
+      "name": "sqlDatabaseGeoReplicated",
       "type": "Microsoft.Resources/deployments",
       "properties": {
         "mode": "incremental",
@@ -21,7 +45,11 @@
   "outputs": {
     "result": {
       "type": "object",
-      "value": "[reference('nestedTemplate').outputs.result]"
+      "value": "[reference('webAppPrimary').outputs.result]",
+      "type": "object",
+      "value": "[reference('webAppSecondary').outputs.result]",
+      "type": "object",
+      "value": "[reference('sqlDatabaseGeoReplicated').outputs.result]"
     }
   }
 }
