@@ -43,11 +43,15 @@
     }
   ],
   "outputs": {
-    "result": {
+    "webAppPrimary": {
       "type": "object",
-      "value": "[reference('webAppPrimary').outputs.result]",
+      "value": "[reference('webAppPrimary').outputs.result]"
+    },
+    "webAppSecondary": {
       "type": "object",
-      "value": "[reference('webAppSecondary').outputs.result]",
+      "value": "[reference('webAppSecondary').outputs.result]"
+    },
+    "sqlDatabaseGeoReplicated": {
       "type": "object",
       "value": "[reference('sqlDatabaseGeoReplicated').outputs.result]"
     }
