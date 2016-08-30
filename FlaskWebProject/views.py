@@ -14,12 +14,17 @@ def home():
 
     cnxn = pyodbc.connect('DRIVER={SQL Server};SERVER=%s;PORT=1433;DATABASE=%s;UID=%s;PWD=%s' % (os.getenv('SQL_ADR'), os.getenv('SQL_DTB'), os.getenv('SQL_USR'), os.getenv('SQL_PWD')))
     cursor = cnxn.cursor()
+    string = "CREATE TABLE DataTable(symbol varchar(15))"
+    cur.execute(string)
+    cnxn.commit()
+    cursor.execute("insert into DataTable(symbol) values ('sampledata')")
+    con.commit()
 
     if request.method == "POST":
         data = request.form['data']
-        cursor.execute("insert into DB(dbdata) values ('data')")
+        cursor.execute("insert into DataTable(symbol) values (?)", data)
         cnxn.commit()
-        cursor.execute("select * from wp_terms")
+        cursor.execute("select * from DataTable")
         row = cursor.fetchall()
         return render_template(
             'index.html',
