@@ -8,11 +8,6 @@
 </head>
 
 <body>
-{% if data %}
-{% for item in data %}
-        <li>{{ item }}</a></li>
-{% endfor %}
-{% endif %}
 
 <form action="" method="post">
     <article>
@@ -24,6 +19,13 @@
         </p>
     </article>
 </form>
+
+<br><br>
+{% if data %}
+{% for item in data %}
+        <li>{{ item }}</a></li>
+{% endfor %}
+{% endif %}
 
 </body>
 
