@@ -9,11 +9,25 @@ from FlaskWebProject import app
 
 
 @app.route('/')
-@app.route('/home')
+@app.route('/home', methods=['get','post'])
 def home():
 
     cnxn = pyodbc.connect('DRIVER={SQL Server};SERVER=%s;PORT=1433;DATABASE=%s;UID=%s;PWD=%s' % (os.getenv('SQL_ADR'), os.getenv('SQL_DTB'), os.getenv('SQL_USR'), os.getenv('SQL_PWD')))
     cursor = cnxn.cursor()
+
+    if request.method == "POST":
+        data = request.form['data']
+        cursor.execute("insert into DB(dbdata) values ('data')")
+        cnxn.commit()
+        cursor.execute("select * from wp_terms")
+        row = cursor.fetchall()
+        return render_template(
+            'index.html',
+            title='Home Page',
+            year=datetime.now().year,
+            data=row
+        )
+
     cursor.execute("select * from wp_terms")
     row = cursor.fetchall()
 
