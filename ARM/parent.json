@@ -1,0 +1,59 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "containerSasToken": { "type": "string" }
+  },
+  "resources": [
+    {
+      "apiVersion": "2015-01-01",
+      "name": "webAppPrimary",
+      "type": "Microsoft.Resources/deployments",
+      "properties": {
+        "mode": "incremental",
+        "templateLink": {
+          "uri": "https://raw.githubusercontent.com/4c74356b41/bbbb-is-the-word/master/ARM/helloworld.json",
+          "contentVersion": "1.0.0.0"
+        }
+      }
+    },
+        {
+      "apiVersion": "2015-01-01",
+      "name": "webAppSecondary",
+      "type": "Microsoft.Resources/deployments",
+      "properties": {
+        "mode": "incremental",
+        "templateLink": {
+          "uri": "https://raw.githubusercontent.com/4c74356b41/bbbb-is-the-word/master/ARM/helloworld.json",
+          "contentVersion": "1.0.0.0"
+        }
+      }
+    },
+        {
+      "apiVersion": "2015-01-01",
+      "name": "sqlDatabaseGeoReplicated",
+      "type": "Microsoft.Resources/deployments",
+      "properties": {
+        "mode": "incremental",
+        "templateLink": {
+          "uri": "https://raw.githubusercontent.com/4c74356b41/bbbb-is-the-word/master/ARM/helloworld.json",
+          "contentVersion": "1.0.0.0"
+        }
+      }
+    }
+  ],
+  "outputs": {
+    "webAppPrimary": {
+      "type": "object",
+      "value": "[reference('webAppPrimary').outputs.result]"
+    },
+    "webAppSecondary": {
+      "type": "object",
+      "value": "[reference('webAppSecondary').outputs.result]"
+    },
+    "sqlDatabaseGeoReplicated": {
+      "type": "object",
+      "value": "[reference('sqlDatabaseGeoReplicated').outputs.result]"
+    }
+  }
+}
