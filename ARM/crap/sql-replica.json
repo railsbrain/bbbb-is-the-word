@@ -1,0 +1,490 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "autoscalesettings_pyflare_4c74356b41_North_Europe_name": {
+            "defaultValue": "pyflare-4c74356b41-North Europe",
+            "type": "String"
+        },
+        "servers_db_4c7_name": {
+            "defaultValue": "db-4c7",
+            "type": "String"
+        },
+        "servers_db_4c7r_name": {
+            "defaultValue": "db-4c7r",
+            "type": "String"
+        },
+        "storageAccounts_4c74356b41_name": {
+            "defaultValue": "4c74356b41",
+            "type": "String"
+        },
+        "serverfarms_4c74356b41_name": {
+            "defaultValue": "4c74356b41",
+            "type": "String"
+        },
+        "sites_4c74356b41_name": {
+            "defaultValue": "4c74356b41",
+            "type": "String"
+        },
+        "databases_4c74356b41_name": {
+            "defaultValue": "db-4c7/4c74356b41",
+            "type": "String"
+        },
+        "databases_master_name": {
+            "defaultValue": "db-4c7/master",
+            "type": "String"
+        },
+        "firewallRules_AllowAllWindowsAzureIps_name": {
+            "defaultValue": "db-4c7/AllowAllWindowsAzureIps",
+            "type": "String"
+        },
+        "firewallRules_ClientIPAddress_2016_04_20_12:00:54_name": {
+            "defaultValue": "db-4c7/ClientIPAddress_2016-04-20_12:00:54",
+            "type": "String"
+        },
+        "firewallRules_ClientIPAddress_2016_08_20_10:30:45_name": {
+            "defaultValue": "db-4c7/ClientIPAddress_2016-08-20_10:30:45",
+            "type": "String"
+        },
+        "firewallRules_ClientIPAddress_2016_08_20_12:52:11_name": {
+            "defaultValue": "db-4c7/ClientIPAddress_2016-08-20_12:52:11",
+            "type": "String"
+        },
+        "firewallRules_ClientIPAddress_2016_08_27_08:43:36_name": {
+            "defaultValue": "db-4c7/ClientIPAddress_2016-08-27_08:43:36",
+            "type": "String"
+        },
+        "firewallRules_ClientIPAddress_2016_4_2_9_57_40_name": {
+            "defaultValue": "db-4c7/ClientIPAddress_2016-4-2_9-57-40",
+            "type": "String"
+        },
+        "databases_4c74356b41_name_1": {
+            "defaultValue": "db-4c7r/4c74356b41",
+            "type": "String"
+        },
+        "databases_master_name_1": {
+            "defaultValue": "db-4c7r/master",
+            "type": "String"
+        },
+        "firewallRules_AllowAllWindowsAzureIps_name_1": {
+            "defaultValue": "db-4c7r/AllowAllWindowsAzureIps",
+            "type": "String"
+        },
+        "autoscalesettings_pyflare_4c74356b41_North_Europe_metricResourceUri": {
+            "defaultValue": "/subscriptions/c6af39f7-0fce-432b-98cd-c34fe14e6a66/resourcegroups/4c74356b41/providers/Microsoft.Web/serverfarms/pyflare",
+            "type": "String"
+        },
+        "autoscalesettings_pyflare_4c74356b41_North_Europe_metricResourceUri_1": {
+            "defaultValue": "/subscriptions/c6af39f7-0fce-432b-98cd-c34fe14e6a66/resourcegroups/4c74356b41/providers/Microsoft.Web/serverfarms/pyflare",
+            "type": "String"
+        },
+        "autoscalesettings_pyflare_4c74356b41_North_Europe_targetResourceUri": {
+            "defaultValue": "/subscriptions/c6af39f7-0fce-432b-98cd-c34fe14e6a66/resourcegroups/4c74356b41/providers/Microsoft.Web/serverfarms/pyflare",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "comments": "Generalized from resource: '/subscriptions/c6af39f7-0fce-432b-98cd-c34fe14e6a66/resourceGroups/4c74356b41/providers/microsoft.insights/autoscalesettings/pyflare-4c74356b41-North Europe'.",
+            "type": "microsoft.insights/autoscalesettings",
+            "name": "[parameters('autoscalesettings_pyflare_4c74356b41_North_Europe_name')]",
+            "apiVersion": "2014-04-01",
+            "location": "North Europe",
+            "tags": {
+                "hidden-link:/subscriptions/c6af39f7-0fce-432b-98cd-c34fe14e6a66/resourcegroups/4c74356b41/providers/Microsoft.Web/serverfarms/pyflare": "Resource"
+            },
+            "properties": {
+                "profiles": [
+                    {
+                        "name": "Default",
+                        "capacity": {
+                            "minimum": "1",
+                            "maximum": "1",
+                            "default": "1"
+                        },
+                        "rules": [
+                            {
+                                "metricTrigger": {
+                                    "metricName": "CpuPercentage",
+                                    "metricNamespace": "",
+                                    "metricResourceUri": "[parameters('autoscalesettings_pyflare_4c74356b41_North_Europe_metricResourceUri')]",
+                                    "timeGrain": "PT1M",
+                                    "statistic": "Average",
+                                    "timeWindow": "PT10M",
+                                    "timeAggregation": "Average",
+                                    "operator": "GreaterThan",
+                                    "threshold": 80
+                                },
+                                "scaleAction": {
+                                    "direction": "Increase",
+                                    "type": "ChangeCount",
+                                    "value": "1",
+                                    "cooldown": "PT10M"
+                                }
+                            },
+                            {
+                                "metricTrigger": {
+                                    "metricName": "CpuPercentage",
+                                    "metricNamespace": "",
+                                    "metricResourceUri": "[parameters('autoscalesettings_pyflare_4c74356b41_North_Europe_metricResourceUri_1')]",
+                                    "timeGrain": "PT1M",
+                                    "statistic": "Average",
+                                    "timeWindow": "PT1H",
+                                    "timeAggregation": "Average",
+                                    "operator": "LessThan",
+                                    "threshold": 60
+                                },
+                                "scaleAction": {
+                                    "direction": "Decrease",
+                                    "type": "ChangeCount",
+                                    "value": "1",
+                                    "cooldown": "PT1H"
+                                }
+                            }
+                        ]
+                    }
+                ],
+                "enabled": false,
+                "name": "[parameters('autoscalesettings_pyflare_4c74356b41_North_Europe_name')]",
+                "targetResourceUri": "[parameters('autoscalesettings_pyflare_4c74356b41_North_Europe_targetResourceUri')]"
+            },
+            "resources": [],
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/c6af39f7-0fce-432b-98cd-c34fe14e6a66/resourceGroups/4c74356b41/providers/Microsoft.Sql/servers/db-4c7'.",
+            "type": "Microsoft.Sql/servers",
+            "kind": "v12.0",
+            "name": "[parameters('servers_db_4c7_name')]",
+            "apiVersion": "2014-04-01-preview",
+            "location": "North Europe",
+            "properties": {
+                "administratorLogin": "dba",
+                "administratorLoginPassword": null,
+                "version": "12.0"
+            },
+            "resources": [],
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/c6af39f7-0fce-432b-98cd-c34fe14e6a66/resourceGroups/4c74356b41/providers/Microsoft.Sql/servers/db-4c7r'.",
+            "type": "Microsoft.Sql/servers",
+            "kind": "v12.0",
+            "name": "[parameters('servers_db_4c7r_name')]",
+            "apiVersion": "2014-04-01-preview",
+            "location": "West Europe",
+            "properties": {
+                "administratorLogin": "dba",
+                "administratorLoginPassword": null,
+                "version": "12.0"
+            },
+            "resources": [],
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/c6af39f7-0fce-432b-98cd-c34fe14e6a66/resourceGroups/4c74356b41/providers/Microsoft.Storage/storageAccounts/4c74356b41'.",
+            "type": "Microsoft.Storage/storageAccounts",
+            "sku": {
+                "name": "Standard_ZRS",
+                "tier": "Standard"
+            },
+            "kind": "Storage",
+            "name": "[parameters('storageAccounts_4c74356b41_name')]",
+            "apiVersion": "2016-01-01",
+            "location": "northeurope",
+            "tags": {},
+            "properties": {},
+            "resources": [],
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/c6af39f7-0fce-432b-98cd-c34fe14e6a66/resourceGroups/4c74356b41/providers/Microsoft.Web/serverfarms/4c74356b41'.",
+            "type": "Microsoft.Web/serverfarms",
+            "sku": {
+                "name": "D1",
+                "tier": "Shared",
+                "size": "D1",
+                "family": "D",
+                "capacity": 0
+            },
+            "name": "[parameters('serverfarms_4c74356b41_name')]",
+            "apiVersion": "2015-08-01",
+            "location": "North Europe",
+            "properties": {
+                "name": "[parameters('serverfarms_4c74356b41_name')]",
+                "numberOfWorkers": 0
+            },
+            "resources": [],
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/c6af39f7-0fce-432b-98cd-c34fe14e6a66/resourceGroups/4c74356b41/providers/Microsoft.Web/sites/4c74356b41'.",
+            "type": "Microsoft.Web/sites",
+            "name": "[parameters('sites_4c74356b41_name')]",
+            "apiVersion": "2015-08-01",
+            "location": "North Europe",
+            "properties": {
+                "name": "[parameters('sites_4c74356b41_name')]",
+                "hostNames": [
+                    "4c74356b41.com",
+                    "4c74356b41.azurewebsites.net"
+                ],
+                "enabledHostNames": [
+                    "4c74356b41.com",
+                    "4c74356b41.azurewebsites.net",
+                    "4c74356b41.scm.azurewebsites.net"
+                ],
+                "hostNameSslStates": [
+                    {
+                        "name": "[concat(parameters('sites_4c74356b41_name'),'.azurewebsites.net')]",
+                        "sslState": 0,
+                        "thumbprint": null,
+                        "ipBasedSslState": 0
+                    },
+                    {
+                        "name": "[concat(parameters('sites_4c74356b41_name'),'.com')]",
+                        "sslState": 0,
+                        "thumbprint": null,
+                        "ipBasedSslState": 0
+                    },
+                    {
+                        "name": "[concat(parameters('sites_4c74356b41_name'),'.scm.azurewebsites.net')]",
+                        "sslState": 0,
+                        "thumbprint": null,
+                        "ipBasedSslState": 0
+                    }
+                ],
+                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_4c74356b41_name'))]"
+            },
+            "resources": [],
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_4c74356b41_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/c6af39f7-0fce-432b-98cd-c34fe14e6a66/resourceGroups/4c74356b41/providers/Microsoft.Sql/servers/db-4c7/databases/4c74356b41'.",
+            "type": "Microsoft.Sql/servers/databases",
+            "kind": "v12.0,user",
+            "name": "[parameters('databases_4c74356b41_name')]",
+            "apiVersion": "2014-04-01-preview",
+            "location": "North Europe",
+            "properties": {
+                "databaseId": "a005e210-8806-4add-b5eb-7fc0fab190e4",
+                "edition": "Basic",
+                "status": "Online",
+                "serviceLevelObjective": "Basic",
+                "collation": "SQL_Latin1_General_CP1_CI_AS",
+                "maxSizeBytes": "2147483648",
+                "creationDate": "2016-02-03T19:47:17.2Z",
+                "currentServiceObjectiveId": "dd6d99bb-f193-4ec1-86f2-43d3bccbc49c",
+                "requestedServiceObjectiveId": "dd6d99bb-f193-4ec1-86f2-43d3bccbc49c",
+                "requestedServiceObjectiveName": "Basic",
+                "defaultSecondaryLocation": "West Europe",
+                "earliestRestoreDate": "2016-08-20T00:00:00Z",
+                "elasticPoolName": null,
+                "containmentState": 2
+            },
+            "resources": [],
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_db_4c7_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/c6af39f7-0fce-432b-98cd-c34fe14e6a66/resourceGroups/4c74356b41/providers/Microsoft.Sql/servers/db-4c7/databases/master'.",
+            "type": "Microsoft.Sql/servers/databases",
+            "kind": "v12.0,system",
+            "name": "[parameters('databases_master_name')]",
+            "apiVersion": "2014-04-01-preview",
+            "location": "North Europe",
+            "properties": {
+                "databaseId": "a43f6a2a-bd40-4c38-9c18-cfd1f34f5629",
+                "edition": "System",
+                "status": "Online",
+                "serviceLevelObjective": "System0",
+                "collation": "SQL_Latin1_General_CP1_CI_AS",
+                "maxSizeBytes": "5368709120",
+                "creationDate": "2016-02-03T19:46:54.403Z",
+                "currentServiceObjectiveId": "29dd7459-4a7c-4e56-be22-f0adda49440d",
+                "requestedServiceObjectiveId": "29dd7459-4a7c-4e56-be22-f0adda49440d",
+                "requestedServiceObjectiveName": "System0",
+                "defaultSecondaryLocation": "West Europe",
+                "earliestRestoreDate": null,
+                "elasticPoolName": null,
+                "containmentState": 2
+            },
+            "resources": [],
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_db_4c7_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/c6af39f7-0fce-432b-98cd-c34fe14e6a66/resourceGroups/4c74356b41/providers/Microsoft.Sql/servers/db-4c7/firewallRules/AllowAllWindowsAzureIps'.",
+            "type": "Microsoft.Sql/servers/firewallRules",
+            "kind": "v12.0",
+            "name": "[parameters('firewallRules_AllowAllWindowsAzureIps_name')]",
+            "apiVersion": "2014-04-01-preview",
+            "location": "North Europe",
+            "properties": {
+                "startIpAddress": "0.0.0.0",
+                "endIpAddress": "0.0.0.0"
+            },
+            "resources": [],
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_db_4c7_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/c6af39f7-0fce-432b-98cd-c34fe14e6a66/resourceGroups/4c74356b41/providers/Microsoft.Sql/servers/db-4c7/firewallRules/ClientIPAddress_2016-04-20_12:00:54'.",
+            "type": "Microsoft.Sql/servers/firewallRules",
+            "kind": "v12.0",
+            "name": "[parameters('firewallRules_ClientIPAddress_2016_04_20_12:00:54_name')]",
+            "apiVersion": "2014-04-01-preview",
+            "location": "North Europe",
+            "properties": {
+                "startIpAddress": "37.110.10.183",
+                "endIpAddress": "37.110.10.183"
+            },
+            "resources": [],
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_db_4c7_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/c6af39f7-0fce-432b-98cd-c34fe14e6a66/resourceGroups/4c74356b41/providers/Microsoft.Sql/servers/db-4c7/firewallRules/ClientIPAddress_2016-08-20_10:30:45'.",
+            "type": "Microsoft.Sql/servers/firewallRules",
+            "kind": "v12.0",
+            "name": "[parameters('firewallRules_ClientIPAddress_2016_08_20_10:30:45_name')]",
+            "apiVersion": "2014-04-01-preview",
+            "location": "North Europe",
+            "properties": {
+                "startIpAddress": "37.44.78.133",
+                "endIpAddress": "37.44.78.133"
+            },
+            "resources": [],
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_db_4c7_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/c6af39f7-0fce-432b-98cd-c34fe14e6a66/resourceGroups/4c74356b41/providers/Microsoft.Sql/servers/db-4c7/firewallRules/ClientIPAddress_2016-08-20_12:52:11'.",
+            "type": "Microsoft.Sql/servers/firewallRules",
+            "kind": "v12.0",
+            "name": "[parameters('firewallRules_ClientIPAddress_2016_08_20_12:52:11_name')]",
+            "apiVersion": "2014-04-01-preview",
+            "location": "North Europe",
+            "properties": {
+                "startIpAddress": "37.44.73.238",
+                "endIpAddress": "37.44.73.238"
+            },
+            "resources": [],
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_db_4c7_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/c6af39f7-0fce-432b-98cd-c34fe14e6a66/resourceGroups/4c74356b41/providers/Microsoft.Sql/servers/db-4c7/firewallRules/ClientIPAddress_2016-08-27_08:43:36'.",
+            "type": "Microsoft.Sql/servers/firewallRules",
+            "kind": "v12.0",
+            "name": "[parameters('firewallRules_ClientIPAddress_2016_08_27_08:43:36_name')]",
+            "apiVersion": "2014-04-01-preview",
+            "location": "North Europe",
+            "properties": {
+                "startIpAddress": "37.44.122.0",
+                "endIpAddress": "37.44.122.255"
+            },
+            "resources": [],
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_db_4c7_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/c6af39f7-0fce-432b-98cd-c34fe14e6a66/resourceGroups/4c74356b41/providers/Microsoft.Sql/servers/db-4c7/firewallRules/ClientIPAddress_2016-4-2_9-57-40'.",
+            "type": "Microsoft.Sql/servers/firewallRules",
+            "kind": "v12.0",
+            "name": "[parameters('firewallRules_ClientIPAddress_2016_4_2_9_57_40_name')]",
+            "apiVersion": "2014-04-01-preview",
+            "location": "North Europe",
+            "properties": {
+                "startIpAddress": "213.128.197.17",
+                "endIpAddress": "213.128.197.17"
+            },
+            "resources": [],
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_db_4c7_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/c6af39f7-0fce-432b-98cd-c34fe14e6a66/resourceGroups/4c74356b41/providers/Microsoft.Sql/servers/db-4c7r/databases/4c74356b41'.",
+            "type": "Microsoft.Sql/servers/databases",
+            "kind": "v12.0,user",
+            "name": "[parameters('databases_4c74356b41_name_1')]",
+            "apiVersion": "2014-04-01-preview",
+            "location": "West Europe",
+            "properties": {
+                "databaseId": "cca3f5e3-9313-42ce-bc3f-2a13b4e0bc5e",
+                "edition": "Basic",
+                "status": "Online",
+                "serviceLevelObjective": "Basic",
+                "collation": "SQL_Latin1_General_CP1_CI_AS",
+                "maxSizeBytes": "2147483648",
+                "creationDate": "2016-08-27T14:27:59.517Z",
+                "currentServiceObjectiveId": "dd6d99bb-f193-4ec1-86f2-43d3bccbc49c",
+                "requestedServiceObjectiveId": "dd6d99bb-f193-4ec1-86f2-43d3bccbc49c",
+                "requestedServiceObjectiveName": "Basic",
+                "defaultSecondaryLocation": "North Europe",
+                "earliestRestoreDate": "2016-08-27T14:38:55.613Z",
+                "elasticPoolName": null,
+                "containmentState": 2
+            },
+            "resources": [],
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_db_4c7r_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/c6af39f7-0fce-432b-98cd-c34fe14e6a66/resourceGroups/4c74356b41/providers/Microsoft.Sql/servers/db-4c7r/databases/master'.",
+            "type": "Microsoft.Sql/servers/databases",
+            "kind": "v12.0,system",
+            "name": "[parameters('databases_master_name_1')]",
+            "apiVersion": "2014-04-01-preview",
+            "location": "West Europe",
+            "properties": {
+                "databaseId": "482b3f80-1470-4136-811b-88dc83ab771f",
+                "edition": "System",
+                "status": "Online",
+                "serviceLevelObjective": "System2",
+                "collation": "SQL_Latin1_General_CP1_CI_AS",
+                "maxSizeBytes": "32212254720",
+                "creationDate": "2016-08-27T14:27:29.647Z",
+                "currentServiceObjectiveId": "620323bf-2879-4807-b30d-c2e6d7b3b3aa",
+                "requestedServiceObjectiveId": "620323bf-2879-4807-b30d-c2e6d7b3b3aa",
+                "requestedServiceObjectiveName": "System2",
+                "defaultSecondaryLocation": "North Europe",
+                "earliestRestoreDate": null,
+                "elasticPoolName": null,
+                "containmentState": 2
+            },
+            "resources": [],
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_db_4c7r_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/c6af39f7-0fce-432b-98cd-c34fe14e6a66/resourceGroups/4c74356b41/providers/Microsoft.Sql/servers/db-4c7r/firewallRules/AllowAllWindowsAzureIps'.",
+            "type": "Microsoft.Sql/servers/firewallRules",
+            "kind": "v12.0",
+            "name": "[parameters('firewallRules_AllowAllWindowsAzureIps_name_1')]",
+            "apiVersion": "2014-04-01-preview",
+            "location": "West Europe",
+            "properties": {
+                "startIpAddress": "0.0.0.0",
+                "endIpAddress": "0.0.0.0"
+            },
+            "resources": [],
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_db_4c7r_name'))]"
+            ]
+        }
+    ]
+}
