@@ -74,3 +74,42 @@
         }
     ]
 }
+
+
+
+
+
+
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "administratorLogin": {
+            "value": "administratorLogin"
+        },
+        "administratorLoginPassword": {
+            "value": null
+        },
+        "databaseName": {
+            "value": "databaseName"
+        },
+        "location": {
+            "value": "westeurope"
+        },
+        "serverName": {
+            "value": "serverName"
+        },
+        "createMode": {
+            "value": "OnlineSecondary"
+        },
+        "sourceDatabaseId": {
+            "value": "/subscriptions/c6af39f7-0fce-432b-98cd-c34fe14e6a66/resourceGroups/4c74356b41/providers/Microsoft.Sql/servers/serverName/databases/databaseName"
+        },
+        "version": {
+            "value": "12.0"
+        },
+        "requestedServiceObjectiveName": {
+            "value": "Basic"
+        }
+    }
+}
