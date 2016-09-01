@@ -1,0 +1,30 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "autoscalesettings_testoPlan_testo_North_Europe_name": {
+            "value": null
+        },
+        "components_f1asky_name": {
+            "value": null
+        },
+        "components_unicornation_name": {
+            "value": null
+        },
+        "components_weatherap1_name": {
+            "value": null
+        },
+        "serverfarms_testoPlan_name": {
+            "value": null
+        },
+        "sites_unicornation_name": {
+            "value": null
+        },
+        "sites_f1asky_name": {
+            "value": null
+        },
+        "sites_WeatherAp1_name": {
+            "value": null
+        }
+    }
+}
