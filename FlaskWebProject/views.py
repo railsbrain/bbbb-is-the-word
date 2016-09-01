@@ -2,7 +2,7 @@ import pyodbc, os
 from datetime import datetime
 from flask import render_template,url_for,request,redirect,session,flash
 from FlaskWebProject import app
-from azure.storage.queue import QueueService
+'''from azure.storage.queue import QueueService'''
 
 @app.route('/', methods=['get','post'])
 def home():
