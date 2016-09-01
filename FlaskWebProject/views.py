@@ -25,11 +25,8 @@ def home():
     #cursor.execute("select * from DataTable")
     #row = cursor.fetchall()
 
-    data = 'test'
-
     return render_template(
         'index.html',
         title='Home Page',
-        year=datetime.now().year,
-        data=row
+        year=datetime.now().year
     )
