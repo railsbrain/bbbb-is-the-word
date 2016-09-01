@@ -1,4 +1,4 @@
-import pyodbc, os, azure.storage
+import pyodbc, os, azure-storage
 from datetime import datetime
 from flask import render_template,url_for,request,redirect,session,flash
 from FlaskWebProject import app
