@@ -10,7 +10,7 @@
       "name": "webAppPrimary",
       "type": "Microsoft.Resources/deployments",
       "properties": {
-        "mode": "incremental",
+        "mode": "Incremental",
         "templateLink": {
           "uri": "https://raw.githubusercontent.com/4c74356b41/bbbb-is-the-word/master/ARM/helloworld.json",
           "contentVersion": "1.0.0.0"
@@ -22,7 +22,7 @@
       "name": "webAppSecondary",
       "type": "Microsoft.Resources/deployments",
       "properties": {
-        "mode": "incremental",
+        "mode": "Incremental",
         "templateLink": {
           "uri": "https://raw.githubusercontent.com/4c74356b41/bbbb-is-the-word/master/ARM/helloworld.json",
           "contentVersion": "1.0.0.0"
@@ -34,7 +34,7 @@
       "name": "sqlDatabaseGeoReplicated",
       "type": "Microsoft.Resources/deployments",
       "properties": {
-        "mode": "incremental",
+        "mode": "Incremental",
         "templateLink": {
           "uri": "https://raw.githubusercontent.com/4c74356b41/bbbb-is-the-word/master/ARM/helloworld.json",
           "contentVersion": "1.0.0.0"
