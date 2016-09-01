@@ -1,4 +1,4 @@
-import pyodbc, os, azure.storage
+import pyodbc, os
 from datetime import datetime
 from flask import render_template,url_for,request,redirect,session,flash
 from FlaskWebProject import app
@@ -25,7 +25,7 @@ def home():
     #cursor.execute("select * from DataTable")
     #row = cursor.fetchall()
     #data = row 
-    
+
     return render_template(
         'index.html',
         title='Home Page',
