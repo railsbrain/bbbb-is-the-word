@@ -1,4 +1,4 @@
-import os
+import os,azure.storage.queue
 from datetime import datetime
 from flask import render_template,url_for,request,redirect,session,flash
 from FlaskWebProject import app
