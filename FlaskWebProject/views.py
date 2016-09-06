@@ -4,7 +4,7 @@ from flask import render_template,url_for,request,redirect,session,flash
 from FlaskWebProject import app
 from azure.storage.queue import QueueService
 
-queue_service = QueueService(account_name='bbbb', account_key='Do2+kHErXe41U38w91iiBMDTkHNceRmVhYT3YGNkvO+jj1BfKoLVGYaDn+wGdPw39NwzJNHmDSj3Frzm5xOF7Q==')
+queue_service = QueueService(account_name=os.getenv('storageaccount'), account_key=os.getenv('storagekey'))
 queue_service.create_queue('dddd')
 
 @app.route('/', methods=['get','post'])
