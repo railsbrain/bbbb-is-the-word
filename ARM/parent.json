@@ -2,19 +2,42 @@
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "containerSasToken": { "type": "string" }
+    "siteName-Primary": { "type": "string" },
+    "siteName-Secondary": { "type": "string" },
+    "hostingPlanName": { "type": "string" },
+        "sku": { "type": "string",
+                 "allowedValues": [ "F1", "D1", "B1", "B2", "B3", "S1", "S2", "S3", "P1", "P2", "P3", "P4" ]
+               },
+    "repoURL": { "type": "string" },
+    "branch": { "type": "string" }
   },
-  "resources": [
-    {
+  "resources": [{
       "apiVersion": "2015-01-01",
       "name": "webAppPrimary",
       "type": "Microsoft.Resources/deployments",
       "properties": {
         "mode": "Incremental",
         "templateLink": {
-          "uri": "https://raw.githubusercontent.com/4c74356b41/bbbb-is-the-word/master/ARM/helloworld.json",
+          "uri": "https://raw.githubusercontent.com/4c74356b41/bbbb-is-the-word/master/ARM/webapp-git.json",
           "contentVersion": "1.0.0.0"
-        }
+        },
+      "parameters": { 
+        "siteName": {
+          "value": "[parameters('siteName-Primary')]"
+          },
+        "hostingPlanName": {
+          "value": "[parameters('hostingPlanName')]"
+          },
+        "sku": {
+          "value": "[parameters('sku')]"
+          },
+        "repoUrl": {
+          "value": "[parameters('repoUrl')]"
+          },
+        "branch": {
+          "value": "[parameters('branch')]"
+          }
+        } 
       }
     },
         {
@@ -24,9 +47,26 @@
       "properties": {
         "mode": "Incremental",
         "templateLink": {
-          "uri": "https://raw.githubusercontent.com/4c74356b41/bbbb-is-the-word/master/ARM/helloworld.json",
+          "uri": "https://raw.githubusercontent.com/4c74356b41/bbbb-is-the-word/master/ARM/webapp-git.json",
           "contentVersion": "1.0.0.0"
-        }
+        },
+      "parameters": { 
+        "siteName": {
+          "value": "[parameters('siteName-Secondary')]"
+          },
+        "hostingPlanName": {
+          "value": "[parameters('hostingPlanName')]"
+          },
+        "sku": {
+          "value": "[parameters('sku')]"
+          },
+        "repoUrl": {
+          "value": "[parameters('repoUrl')]"
+          },
+        "branch": {
+          "value": "[parameters('branch')]"
+          }
+        } 
       }
     },
         {

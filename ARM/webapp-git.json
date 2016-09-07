@@ -103,5 +103,11 @@
         }
       ]
     }
-  ]
+  ],
+  "outputs": {
+    "Results": {
+      "type":"string",
+      "value": "[reference('Microsoft.Web/Sites/', parameters('siteName'))]"
+    }
+  }
 }
