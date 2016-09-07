@@ -99,37 +99,37 @@
         },
       "parameters": {
         "administratorLogin": {
-            "type": "string"
+            "value": "[parameters('replicalocation')]"
          },
         "administratorLoginPassword": {
-            "type": "securestring"
+            "value": "[parameters('replicalocation')]"
           },
         "collation": {
-            "type": "string"
+            "value": "[parameters('replicalocation')]"
          },
         "databaseName": {
-            "type": "string"
+            "value": "[parameters('replicalocation')]"
          },
         "edition": {
-            "type": "string"
+            "value": "[parameters('replicalocation')]"
          },
         "requestedServiceObjectiveName": {
-            "type": "string"
+            "value": "[parameters('replicalocation')]"
          },
         "location": {
-            "type": "string"
+            "value": "[parameters('replicalocation')]"
          },
         "replicalocation": {
-            "type": "string"
+            "value": "[parameters('replicalocation')]"
          },
         "serverName": {
-            "type": "string"
+            "value": "[parameters('replicalocation')]"
          },
         "serverReplicaName": {
-            "type": "string"
+            "value": "[parameters('replicalocation')]"
           },
         "version": {
-            "type": "string"
+            "value": "[parameters('replicalocation')]"
           }
         } 
       }
