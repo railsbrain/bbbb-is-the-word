@@ -107,7 +107,7 @@
   "outputs": {
     "Results": {
       "type":"string",
-      "value": "[concat('http://',reference(resourceId('Microsoft.Web/sites', parameters('siteName'))).hostNames[0])]"
+      "value": "Hello World"
     }
   }
 }
