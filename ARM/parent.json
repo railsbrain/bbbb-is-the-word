@@ -10,7 +10,18 @@
                  "allowedValues": [ "F1", "D1", "B1", "B2", "B3", "S1", "S2", "S3", "P1", "P2", "P3", "P4" ]
                },
     "repoURL": { "type": "string" },
-    "branch": { "type": "string" }
+    "branch": { "type": "string" },
+    "administratorLogin": { "type": "string" },
+    "administratorLoginPassword": { "type": "string" },
+    "collation": { "type": "string" },
+    "databaseName": { "type": "string" },
+    "edition": { "type": "string" },
+    "requestedServiceObjectiveName": { "type": "string" },
+    "location": { "type": "string" },
+    "replicalocation": { "type": "string" },
+    "serverName": { "type": "string" },
+    "serverReplicaName": { "type": "string" },
+    "version": { "type": "string" }
   },
   "resources": [{
       "apiVersion": "2015-01-01",
@@ -37,7 +48,10 @@
           },
         "branch": {
           "value": "[parameters('branch')]"
-          }
+          },
+        "location": {
+          "value": "[parameters('location')]"
+         }
         } 
       }
     },
@@ -66,7 +80,10 @@
           },
         "branch": {
           "value": "[parameters('branch')]"
-          }
+          },
+        "location": {
+          "value": "[parameters('replicalocation')]"
+         }
         } 
       }
     },
@@ -77,9 +94,44 @@
       "properties": {
         "mode": "Incremental",
         "templateLink": {
-          "uri": "https://raw.githubusercontent.com/4c74356b41/bbbb-is-the-word/master/ARM/helloworld.json",
+          "uri": "https://raw.githubusercontent.com/4c74356b41/bbbb-is-the-word/master/ARM/sql-replica.json",
           "contentVersion": "1.0.0.0"
-        }
+        },
+      "parameters": {
+        "administratorLogin": {
+            "type": "string"
+         },
+        "administratorLoginPassword": {
+            "type": "securestring"
+          },
+        "collation": {
+            "type": "string"
+         },
+        "databaseName": {
+            "type": "string"
+         },
+        "edition": {
+            "type": "string"
+         },
+        "requestedServiceObjectiveName": {
+            "type": "string"
+         },
+        "location": {
+            "type": "string"
+         },
+        "replicalocation": {
+            "type": "string"
+         },
+        "serverName": {
+            "type": "string"
+         },
+        "serverReplicaName": {
+            "type": "string"
+          },
+        "version": {
+            "type": "string"
+          }
+        } 
       }
     }
   ],
