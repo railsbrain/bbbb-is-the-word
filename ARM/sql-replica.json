@@ -122,5 +122,11 @@
                 }
             ]
         }
-    ]
+    ],
+  "outputs": {
+    "Results": {
+      "type": "string",
+      "value": "Hello World"
+    }
+  }
 }
