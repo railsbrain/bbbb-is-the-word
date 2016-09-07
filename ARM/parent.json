@@ -6,22 +6,34 @@
     "siteName-Secondary": { "type": "string" },
     "hostingPlan-Primary": { "type": "string" },
     "hostingPlan-Secondary": { "type": "string" },
-        "sku": { "type": "string",
-                 "allowedValues": [ "F1", "D1", "B1", "B2", "B3", "S1", "S2", "S3", "P1", "P2", "P3", "P4" ]
+        "sku": {  "type": "string",
+                  "allowedValues": [ "F1", "D1", "B1", "B2", "B3", "S1", "S2", "S3", "P1", "P2", "P3", "P4" ]
                },
-    "repoURL": { "type": "string" },
-    "branch": { "type": "string" },
+    "repoURL": {  "type": "string",
+                  "defaultValue": "https://github.com/4c74356b41/f1asky.git"
+    },
+    "branch": {   "type": "string",
+                  "defaultValue": "master"
+    },
     "administratorLogin": { "type": "string" },
     "administratorLoginPassword": { "type": "string" },
-    "collation": { "type": "string" },
+    "collation": {  "type":  "string",
+                    "defaultValue": "SQL_Latin1_General_CP1_CI_AS"
+    },
     "databaseName": { "type": "string" },
-    "edition": { "type": "string" },
-    "requestedServiceObjectiveName": { "type": "string" },
+    "edition": {  "type": "string",
+                  "defaultValue": "basic"
+    },
+    "requestedServiceObjectiveName": {  "type": "string",
+                                        "defaultValue": "basic"
+    },
     "location": { "type": "string" },
     "replicalocation": { "type": "string" },
     "serverName": { "type": "string" },
     "serverReplicaName": { "type": "string" },
-    "version": { "type": "string" }
+    "version": {    "type": "string",
+                    "defaultValue": "12.0"
+    }
   },
   "resources": [{
       "apiVersion": "2015-01-01",
@@ -99,37 +111,37 @@
         },
       "parameters": {
         "administratorLogin": {
-            "value": "[parameters('replicalocation')]"
+            "value": "[parameters('administratorLogin')]"
          },
         "administratorLoginPassword": {
-            "value": "[parameters('replicalocation')]"
+            "value": "[parameters('administratorLoginPassword')]"
           },
         "collation": {
-            "value": "[parameters('replicalocation')]"
+            "value": "[parameters('collation')]"
          },
         "databaseName": {
-            "value": "[parameters('replicalocation')]"
+            "value": "[parameters('databaseName')]"
          },
         "edition": {
-            "value": "[parameters('replicalocation')]"
+            "value": "[parameters('edition')]"
          },
         "requestedServiceObjectiveName": {
-            "value": "[parameters('replicalocation')]"
+            "value": "[parameters('requestedServiceObjectiveName')]"
          },
         "location": {
-            "value": "[parameters('replicalocation')]"
+            "value": "[parameters('location')]"
          },
         "replicalocation": {
             "value": "[parameters('replicalocation')]"
          },
         "serverName": {
-            "value": "[parameters('replicalocation')]"
+            "value": "[parameters('serverName')]"
          },
         "serverReplicaName": {
-            "value": "[parameters('replicalocation')]"
+            "value": "[parameters('serverReplicaName')]"
           },
         "version": {
-            "value": "[parameters('replicalocation')]"
+            "value": "[parameters('version')]"
           }
         } 
       }
@@ -150,6 +162,3 @@
     }
   }
 }
-
-
-SQL_Latin1_General_CP1_CI_AS
