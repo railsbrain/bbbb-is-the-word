@@ -63,6 +63,13 @@
       "metadata": {
         "description": "The branch of the GitHub repository to use."
       }
+    },
+    "StorageAccountName": {
+      "type": "string"
+    }
+  },
+  "variables": {
+        "storageid": "[resourceId('Microsoft.Storage/storageAccounts',parameters('StorageAccountName'))]"
     }
   },
   "resources": [
@@ -93,7 +100,7 @@
                   "appSettings": [
                       {
                           "name": "AzureStorageAccount",
-                          "value": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('newStorageAccountName'),';AccountKey=',listKeys(variables('storageid'),'2015-05-01-preview').key1)]"
+                          "value": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('StorageAccountName'),';AccountKey=',listKeys(variables('storageid'),'2015-05-01-preview').key1)]"
                       }
                   ]
               }

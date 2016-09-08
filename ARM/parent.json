@@ -33,9 +33,44 @@
     "serverReplicaName": { "type": "string" },
     "version": {    "type": "string",
                     "defaultValue": "12.0"
+    },
+    "storageAccountType": {
+      "type": "string",
+      "defaultValue": "Standard_LRS",
+      "allowedValues": [
+          "Standard_LRS",
+          "Standard_GRS",
+          "Standard_ZRS"
+      ],
+      "metadata": {
+          "description": "Storage Account type"
+      }
     }
   },
   "resources": [{
+      "apiVersion": "2015-01-01",
+      "name": "StorageAccount",
+      "type": "Microsoft.Resources/deployments",
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "uri": "https://raw.githubusercontent.com/4c74356b41/bbbb-is-the-word/master/ARM/webapp-git.json",
+          "contentVersion": "1.0.0.0"
+        },
+      "parameters": { 
+        "StorageAccountName": {
+          "value": "[parameters('storageAccountType')]"
+          },
+        "storageAccountType": {
+          "value": "[parameters('storageAccountType')]"
+          },
+        "location": {
+          "value": "[parameters('location')]"
+          }
+        } 
+      }
+    },
+        {
       "apiVersion": "2015-01-01",
       "name": "webAppPrimary",
       "type": "Microsoft.Resources/deployments",
@@ -148,16 +183,20 @@
     }
   ],
   "outputs": {
+    "StorageAccount": {
+      "type": "string",
+      "value": "[reference('StorageAccount').outputs.result]"
+    },
     "webAppPrimary": {
-      "type": "object",
+      "type": "string",
       "value": "[reference('webAppPrimary').outputs.result]"
     },
     "webAppSecondary": {
-      "type": "object",
+      "type": "string",
       "value": "[reference('webAppSecondary').outputs.result]"
     },
     "sqlDatabaseGeoReplicated": {
-      "type": "object",
+      "type": "string",
       "value": "[reference('sqlDatabaseGeoReplicated').outputs.result]"
     }
   }
