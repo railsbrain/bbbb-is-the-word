@@ -55,7 +55,7 @@
       "properties": {
         "mode": "Incremental",
         "templateLink": {
-          "uri": "https://raw.githubusercontent.com/4c74356b41/bbbb-is-the-word/master/ARM/webapp-git.json",
+          "uri": "https://raw.githubusercontent.com/4c74356b41/bbbb-is-the-word/master/ARM/storage.json",
           "contentVersion": "1.0.0.0"
         },
       "parameters": { 
@@ -75,6 +75,9 @@
       "apiVersion": "2015-01-01",
       "name": "webAppPrimary",
       "type": "Microsoft.Resources/deployments",
+      "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
+      ],
       "properties": {
         "mode": "Incremental",
         "templateLink": {
