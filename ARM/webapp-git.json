@@ -64,12 +64,12 @@
         "description": "The branch of the GitHub repository to use."
       }
     },
-    "StorageAccountName": {
+    "storageAccountName": {
       "type": "string"
     }
   },
     "variables": {
-        "storageid": "[resourceId('Microsoft.Storage/storageAccounts',parameters('StorageAccountName'))]"
+        "storageid": "[resourceId('Microsoft.Storage/storageAccounts',parameters('storageAccountName'))]"
     },
   "resources": [
     {
