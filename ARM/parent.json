@@ -45,7 +45,8 @@
       "metadata": {
           "description": "Storage Account type"
       }
-    }
+    },
+    "storageAccountName": { "type": "string" }
   },
   "resources": [{
       "apiVersion": "2015-01-01",
@@ -59,7 +60,7 @@
         },
       "parameters": { 
         "StorageAccountName": {
-          "value": "[parameters('storageAccountType')]"
+          "value": "[parameters('storageAccountName')]"
           },
         "storageAccountType": {
           "value": "[parameters('storageAccountType')]"
