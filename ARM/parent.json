@@ -195,19 +195,19 @@
   "outputs": {
     "StorageAccount": {
       "type": "string",
-      "value": "[reference('StorageAccount').outputs.result]"
+      "value": "[reference('StorageAccount').outputs.BlobUri]"
     },
     "webAppPrimary": {
       "type": "string",
-      "value": "[reference('webAppPrimary').outputs.result]"
+      "value": "[reference('webAppPrimary').outputs.results]"
     },
     "webAppSecondary": {
       "type": "string",
-      "value": "[reference('webAppSecondary').outputs.result]"
+      "value": "[reference('webAppSecondary').outputs.results]"
     },
     "sqlDatabaseGeoReplicated": {
       "type": "string",
-      "value": "[reference('sqlDatabaseGeoReplicated').outputs.result]"
+      "value": "[reference('sqlDatabaseGeoReplicated').outputs.results]"
     }
   }
 }
