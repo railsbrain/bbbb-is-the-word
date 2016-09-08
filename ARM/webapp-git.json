@@ -88,7 +88,15 @@
         "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
       ],
       "properties": {
-        "serverFarmId": "[parameters('hostingPlanName')]"
+        "serverFarmId": "[parameters('hostingPlanName')]",
+        "siteConfig": {
+                  "appSettings": [
+                      {
+                          "name": "AzureStorageAccount",
+                          "value": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('newStorageAccountName'),';AccountKey=',listKeys(variables('storageid'),'2015-05-01-preview').key1)]"
+                      }
+                  ]
+              }
       },
       "resources": [
         {
