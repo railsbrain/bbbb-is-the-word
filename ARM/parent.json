@@ -99,10 +99,13 @@
           },
         "location": {
           "value": "[parameters('location')]"
-         }
+          },
+        "StorageAccountName": {
+          "value": "[parameters('storageAccountName')]"
         } 
       }
-    },
+    }
+  },
         {
       "apiVersion": "2015-01-01",
       "name": "webAppSecondary",
@@ -131,7 +134,10 @@
           },
         "location": {
           "value": "[parameters('replicalocation')]"
-         }
+         },
+        "StorageAccountName": {
+          "value": "[parameters('storageAccountName')]"
+          } 
         } 
       }
     },
