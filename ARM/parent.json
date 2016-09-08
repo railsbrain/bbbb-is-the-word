@@ -76,7 +76,7 @@
       "name": "webAppPrimary",
       "type": "Microsoft.Resources/deployments",
       "dependsOn": [
-        "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
+        "[resourceId('Microsoft.Resources/deployments', 'StorageAccount')]"
       ],
       "properties": {
         "mode": "Incremental",
