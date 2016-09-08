@@ -99,7 +99,7 @@
                   "appSettings": [
                       {
                           "name": "AzureStorageAccount",
-                          "value": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('StorageAccountName'),';AccountKey=',listKeys(variables('storageid'),'2015-06-15').key1)]"
+                          "value": "[listKeys(variables('storageid'),'2015-06-15').key1]"
                       }
                   ]
               }
