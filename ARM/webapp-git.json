@@ -68,10 +68,9 @@
       "type": "string"
     }
   },
-  "variables": {
+    "variables": {
         "storageid": "[resourceId('Microsoft.Storage/storageAccounts',parameters('StorageAccountName'))]"
-    }
-  },
+    },
   "resources": [
     {
       "apiVersion": "2015-08-01",
