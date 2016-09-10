@@ -95,18 +95,18 @@
       ],
       "properties": {
         "serverFarmId": "[parameters('hostingPlanName')]",
-        "siteConfig": {
-                  "appSettings": [
-                      {
-                          "name": "storageKey",
-                          "value": "[listKeys(variables('storageid'),'2015-06-15').key1]"
-                      },
+          "siteConfig": {
+            "appSettings": [
+                        {
+                          "name": "storageKey",
+                          "value": "[listKeys(variables('storageid'),'2015-06-15').key1]"
+                        },
                       {
                         "name": "storageAccount",
                         "value": "[parameters('storageAccountName')]"
                       }
-                  ]
-              }
+                  ]
+              }
       },
       "resources": [
         {
