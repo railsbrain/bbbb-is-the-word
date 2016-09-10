@@ -203,13 +203,13 @@
     }
   ],
   "outputs": {
-    "primaryUri" : {
-      "type" : "string",
-      "value": "[concat('http://',reference(resourceId('Microsoft.Web/sites', parameters('siteName-Primary'))).hostNames[0])]"
+    "webAppPrimary": {
+      "type": "string",
+      "value": "[reference('webAppPrimary').outputs.siteUri]"
     },
-    "secondaryUri" : {
-      "type" : "string",
-      "value": "[concat('http://',reference(resourceId('Microsoft.Web/sites', parameters('siteName-Primary'))).hostNames[0])]"
+    "webAppSecondary": {
+      "type": "string",
+      "value": "[reference('webAppSecondary').outputs.siteUri]"
     }
   }
 }
