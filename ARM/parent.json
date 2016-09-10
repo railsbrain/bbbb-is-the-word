@@ -204,11 +204,11 @@
   ],
   "outputs": {
     "webAppPrimary": {
-      "type": "string",
+      "type": "object",
       "value": "[reference('webAppPrimary').outputs.siteUri]"
     },
     "webAppSecondary": {
-      "type": "string",
+      "type": "object",
       "value": "[reference('webAppSecondary').outputs.siteUri]"
     }
   }
