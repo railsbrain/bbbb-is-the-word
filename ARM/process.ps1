@@ -10,7 +10,7 @@ Set-AzureRmKeyVaultAccessPolicy -EnabledForTemplateDeployment -VaultName $vautlN
 
 #set!
 $secretvalue = ConvertTo-SecureString '!Q2w3e4r' -AsPlainText -Force
-$secret = Set-AzureKeyVaultSecret -VaultName 'bbbbault' -Name 'administratorLoginPassword' -SecretValue $secretvalue
+$secret = Set-AzureKeyVaultSecret -VaultName $vautlName -Name 'administratorLoginPassword' -SecretValue $secretvalue
 
 #¡go!
 $parameters = @{
