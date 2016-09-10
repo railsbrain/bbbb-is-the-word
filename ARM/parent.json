@@ -16,7 +16,7 @@
                   "defaultValue": "master"
     },
     "administratorLogin": { "type": "string" },
-    "administratorLoginPassword": { "type": "string" },
+    "secretName": { "type": "string" },
     "collation": {  "type":  "string",
                     "defaultValue": "SQL_Latin1_General_CP1_CI_AS"
     },
@@ -27,8 +27,10 @@
     "requestedServiceObjectiveName": {  "type": "string",
                                         "defaultValue": "basic"
     },
-    "location": { "type": "string" },
-    "replicalocation": { "type": "string" },
+    "location": { "type": "string", 
+                  "defaultValue": "northeurope" },
+    "replicalocation": {  "type": "string",
+                          "defaultValue": "westeurope"},
     "serverName": { "type": "string" },
     "serverReplicaName": { "type": "string" },
     "version": {    "type": "string",
@@ -113,6 +115,9 @@
       "apiVersion": "2015-01-01",
       "name": "webAppSecondary",
       "type": "Microsoft.Resources/deployments",
+      "dependsOn": [
+        "[resourceId('Microsoft.Resources/deployments', 'StorageAccount')]"
+      ],
       "properties": {
         "mode": "Incremental",
         "templateLink": {
@@ -159,8 +164,13 @@
             "value": "[parameters('administratorLogin')]"
          },
         "administratorLoginPassword": {
-            "value": "[parameters('administratorLoginPassword')]"
-          },
+            "reference": {
+              "keyVault": {
+                "id": "[concat(resourceGroup().id, '/providers/Microsoft.KeyVault/vaults/bbbbault')]"
+              },
+              "secretName": "[parameters('secretName')]"
+            }
+         },
         "collation": {
             "value": "[parameters('collation')]"
          },
@@ -193,21 +203,13 @@
     }
   ],
   "outputs": {
-    "StorageAccount": {
-      "type": "string",
-      "value": "[reference('StorageAccount').outputs.BlobUri]"
+    "primaryUri" : {
+      "type" : "string",
+      "value": "[concat('http://',reference(resourceId('Microsoft.Web/sites', parameters('siteName-Primary'))).hostNames[0])]"
     },
-    "webAppPrimary": {
-      "type": "string",
-      "value": "[reference('webAppPrimary').outputs.results]"
-    },
-    "webAppSecondary": {
-      "type": "string",
-      "value": "[reference('webAppSecondary').outputs.results]"
-    },
-    "sqlDatabaseGeoReplicated": {
-      "type": "string",
-      "value": "[reference('sqlDatabaseGeoReplicated').outputs.results]"
+    "secondaryUri" : {
+      "type" : "string",
+      "value": "[concat('http://',reference(resourceId('Microsoft.Web/sites', parameters('siteName-Primary'))).hostNames[0])]"
     }
   }
 }

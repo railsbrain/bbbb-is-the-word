@@ -98,7 +98,7 @@
         "siteConfig": {
                   "appSettings": [
                       {
-                          "name": "AzureStorageAccount",
+                          "name": "storageKey",
                           "value": "[listKeys(variables('storageid'),'2015-06-15').key1]"
                       }
                   ]
