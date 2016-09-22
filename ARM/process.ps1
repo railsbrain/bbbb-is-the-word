@@ -14,7 +14,7 @@ $secret = Set-AzureKeyVaultSecret -VaultName $vautlName -Name 'administratorLogi
 
 #¡go!
 $parameters = @{
-    'Name' = 'bbbb-is-the-word'   
+    'Name' = 'bbbb-is-the-word'
     'ResourceGroupName' = $resourceGroupName
     "TemplateUri"="https://raw.githubusercontent.com/4c74356b41/bbbb-is-the-word/master/ARM/parent.json"
     "SITENAME-PRIMARY"="bbbb-1s-the-word"
@@ -26,7 +26,7 @@ $parameters = @{
     "SECRETNAME"="administratorLoginPassword"
     "DATABASENAME"="database"
     "SERVERNAME"="bbbb-sq1-pr1"
-    "SERVERREPLICANAME"="bbbb-sq1-rep1"
+    "SERVERREPLICANAME"="bbbb-sq1-rep"
     "STORAGEACCOUNTNAME"="bbbbistheword"
 }
 New-AzureRmResourceGroupDeployment @parameters
